@@ -6,9 +6,9 @@
             <div class="close_logo_admin"><i class="fa fa-times" aria-hidden="true"></i></div>
             <input type="file" class="upload_logo"/>
         </div>
-        <h3>Client info</h3>
-
-        <div class="list_input">
+        {{--<h3>Client info</h3>--}}
+        <br/>
+        {{--<div class="list_input">
             <div class="item">
                 <input type="text" class="client_name" placeholder="Client name" />
             </div>
@@ -21,11 +21,11 @@
             <div class="item">
                 <input type="text" class="client_name" placeholder="Email" />
             </div>
-        </div>
+        </div>--}}
 
         <h3>Guidelines module add</h3>
 
-        <ul class="nav">
+        <ul class="nav" data-url="{{asset('edit/guidelines/'.$id)}}">
             <li data-id="3" class="active"><a href="{{asset('edit/guidelines/'.$id.'#sec3')}}">Logo guidelines</a> </i>
                 <ul style="display: block">
                     <li data-id="4" data-menuanchor="sec4"><a href="{{asset('edit/guidelines/'.$id.'#sec4')}}">Logo</a></li>
@@ -46,11 +46,17 @@
             </li>
         </ul>
 
-        <button class="btn_send_menu_admin">Save guidelines</button>
-        <p>Created by Saokim | Copyright 2019</p>
+        <div class="btn_menu">
+            <button class="btn_send_menu_admin">+ Create new item</button>
+        </div>
+
+        <div class="copyright_menu">
+            <button class="btn_save">Save Guidelines</button>
+            <p>Created by Saokim | Copyright 2019</p>
+        </div>
     </div>
 
-    <div id="fullpage" class="fullpage_admin fullpage_admin_edit">
+    <div id="fullpage" class="fullpage_admin fullpage_new">
         <section class="section section1" style="background: #b9b9b9;">
             <button class="btn_ground">
                 <img src="images/upload2.png" alt="icon" />
@@ -207,6 +213,8 @@
                     <div class="item">
                         <div class="content">
                             <div class="list_color">
+
+                                <div class="edit_color"><input type="text" class="cp-full" value="" name="color1" placeholder="Nhập mã màu" style="width:350px" /></div>
                                 <div class="list">
                                     <div class="color_item" style="background: rgba(246,127,19,1);">100%</div>
                                     <div class="color_item" style="background: rgba(246,127,19,0.9);">90%</div>
@@ -224,12 +232,13 @@
                                         <li>RGB: 240   131  0</li>
                                         <li>CMYK: 0   57    100    0</li>
                                         <li>HEX CODE: #F08300</li>
-                                        <li>PANTONE P24-8 C</li>
+                                        {{--<li>PANTONE P24-8 C</li>--}}
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="list_color">
+                            <div class="list_color list_color2">
+                                <div class="edit_color"><input type="text" class="cp-full2" name="color2" placeholder="Nhập mã màu"/></div>
                                 <div class="list">
                                     <div class="color_item" style="background: rgba(26,24,24,1);color: #FFF;">100%</div>
                                     <div class="color_item" style="background: rgba(26,24,24,0.9);color: #FFF;">90%</div>
@@ -247,8 +256,22 @@
                                         <li>RGB: 240   131  0</li>
                                         <li>CMYK: 0   57    100    0</li>
                                         <li>HEX CODE: #F08300</li>
-                                        <li>PANTONE P24-8 C</li>
+                                        {{--<li>PANTONE P24-8 C</li>--}}
                                     </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="content">
+                            <div class="frm">
+                                <div class="add">
+                                    <span>+</span>
+                                </div>
+                                <div class="flex-grow"></div>
+                                <div class="save">
+                                    <button type="button">Áp dụng</button>
                                 </div>
                             </div>
                         </div>
@@ -274,44 +297,71 @@
                     <div class="item">
                         <div class="content">
                             <div class="list_color">
+                                <div class="get_input_gradient1">
+                                    <div class="input">
+                                        <input type="text" name="ga1" class="ga1" placeholder="Nhập mã màu" />
+                                    </div>
+                                    <div class="input">
+                                        <span>+</span>
+                                    </div>
+                                    <div class="input">
+                                        <input type="text" name="ga2" class="ga2" placeholder="Nhập mã màu" />
+                                    </div>
+                                </div>
                                 <div class="list">
-                                    <div class="color_item" style="background-image: linear-gradient(to right, #7b400a, #f67f13);"></div>
+                                    <div class="color_item get_gar1" style="background-image: linear-gradient(to right, #7b400a, #f67f13);"></div>
                                 </div>
                                 <div class="info">
                                     <ul>
                                         <li>RGB: 240   131  0</li>
                                         <li>CMYK: 0   57    100    0</li>
                                         <li>HEX CODE: #F08300</li>
-                                        <li>PANTONE P24-8 C</li>
                                     </ul>
                                     <div class="flex-grow"></div>
                                     <ul>
                                         <li>RGB: 240   131  0</li>
                                         <li>CMYK: 0   57    100    0</li>
                                         <li>HEX CODE: #F08300</li>
-                                        <li>PANTONE P24-8 C</li>
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="list_color">
+                                <div class="get_input_gradient2">
+                                    <div class="input">
+                                        <input type="text" name="ga3" class="ga3" placeholder="Nhập mã màu" />
+                                    </div>
+                                    <div class="input">
+                                        <span>+</span>
+                                    </div>
+                                    <div class="input">
+                                        <input type="text" name="ga4" class="ga4" placeholder="Nhập mã màu" />
+                                    </div>
+                                </div>
                                 <div class="list">
-                                    <div class="color_item" style="background-image: linear-gradient(to right, #ffc48e, #ff7900);"></div>
+                                    <div class="color_item get_gar2" style="background-image: linear-gradient(to right, #ffc48e, #ff7900);"></div>
                                 </div>
                                 <div class="info">
                                     <ul>
                                         <li>RGB: 240   131  0</li>
                                         <li>CMYK: 0   57    100    0</li>
                                         <li>HEX CODE: #F08300</li>
-                                        <li>PANTONE P24-8 C</li>
                                     </ul>
                                     <div class="flex-grow"></div>
                                     <ul>
                                         <li>RGB: 240   131  0</li>
                                         <li>CMYK: 0   57    100    0</li>
                                         <li>HEX CODE: #F08300</li>
-                                        <li>PANTONE P24-8 C</li>
                                     </ul>
+                                </div>
+                            </div>
+
+                            <div class="list_color">
+                                <div class="frm">
+                                    <div class="flex-grow"></div>
+                                    <div class="save">
+                                        <button type="button">Áp dụng</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -330,10 +380,19 @@
                             <p>Trong thiết kế logo việc lựa chọn và sử dụng font chữ là vô cùng quan trọng.</p>
                             <p>Ngoài ra chúng tôi cũng đưa ra font chữ trình bày văn bản (thể hiện trong các ứng dụng văn phòng) và font chữ gợi ý khác đồng bộ với font chữ thương hiệu và tạo bản sắc riêng cho thương hiệu.</p>
                             <p>Mọi sản phẩm truyền thông thương hiệu của AGRISECO đều bắt buộc phải sử dụng font chữ đã quy định để đảm bảo tính nhận diện cùng với tính đồng bộ nhất quán của thương hiệu.</p>
-                            <div class="btn">
-                                <a href="#" class="font1">Download font thương hiệu</a>
-                                <a href="#" class="font2">Download font bổ trợ</a>
-                                <a href="#" class="font3">Download font văn bản</a>
+                            <div class="btn_front">
+                                <div class="button">
+                                    <span>Upload font thương hiệu</span>
+                                    <input type="file" name="upload_font_th" class="upload_font_th"/>
+                                </div>
+                                <div class="button">
+                                    <span>Upload font bổ trợ</span>
+                                    <input type="file" name="upload_font_bt" class="upload_font_bt"/>
+                                </div>
+                                <div class="button">
+                                    <span>Upload font văn bản</span>
+                                    <input type="file" name="upload_font_vb" class="upload_font_vb"/>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -372,10 +431,19 @@
                             <p>Trong thiết kế logo việc lựa chọn và sử dụng font chữ là vô cùng quan trọng.</p>
                             <p>Ngoài ra chúng tôi cũng đưa ra font chữ trình bày văn bản (thể hiện trong các ứng dụng văn phòng) và font chữ gợi ý khác đồng bộ với font chữ thương hiệu và tạo bản sắc riêng cho thương hiệu.</p>
                             <p>Mọi sản phẩm truyền thông thương hiệu của AGRISECO đều bắt buộc phải sử dụng font chữ đã quy định để đảm bảo tính nhận diện cùng với tính đồng bộ nhất quán của thương hiệu.</p>
-                            <div class="btn">
-                                <a href="#" class="font1">Download font thương hiệu</a>
-                                <a href="#" class="font2">Download font bổ trợ</a>
-                                <a href="#" class="font3">Download font văn bản</a>
+                            <div class="btn_front">
+                                <div class="button">
+                                    <span>Upload font thương hiệu</span>
+                                    <input type="file" name="upload_font_th" class="upload_font_th"/>
+                                </div>
+                                <div class="button">
+                                    <span>Upload font bổ trợ</span>
+                                    <input type="file" name="upload_font_bt" class="upload_font_bt"/>
+                                </div>
+                                <div class="button">
+                                    <span>Upload font văn bản</span>
+                                    <input type="file" name="upload_font_vb" class="upload_font_vb"/>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -404,11 +472,19 @@
                     <div class="item">
                         <div class="content">
                             <div class="list">
-                                <img src="images/g1.png" width="545px" alt="logo"/>
+                                <button class="btn_ground_logo">
+                                    <img src="images/upto4.png" alt="icon" />
+                                    <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
                                 <h3>Logo định dạng nguyên bản</h3>
                             </div>
                             <div class="list">
-                                <img src="images/g2.png" width="545px" alt="logo"/>
+                                <button class="btn_ground_logo">
+                                    <img src="images/upto4.png" alt="icon" />
+                                    <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
                                 <h3>Logo trên nền nhận diện</h3>
                             </div>
                         </div>
@@ -432,12 +508,316 @@
                     <div class="item">
                         <div class="content">
                             <div class="list_g">
-                                <div class="img"><img src="images/g91.png" width="89px" alt="logo"/></div>
+                                <button class="btn_ground_logo">
+                                    <img src="images/upto4.png" alt="icon" />
+                                    <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
                                 <h3>Khi chỉ có biểu tượng</h3>
                             </div>
                             <div class="list_g">
-                                <div class="img"><img src="images/g92.png" width="362px" alt="logo"/></div>
+                                <button class="btn_ground_logo">
+                                    <img src="images/upto4.png" alt="icon" />
+                                    <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
                                 <h3>Khi hiển thị đầy đủ</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section13">
+            <div class="in">
+                <h2>11. <p>Logo màu hạn chế</p></h2>
+
+                <div class="list_color">
+                    <div class="item">
+                        <div class="content">
+                            <p>Sau đây là kích thước logo tối thiểu của biểu tượng khi sử dụng trong trường hợp in ấn và trường hợp hiển thị trên màn hình.</p>
+                            <p>Kích thước tối thiểu của biểu tượng không được phép nhỏ hơn quy định nhằm đảm bảo tính rõ ràng, độ sắc nét và dễ nhận biết của thương hiệu.</p>
+                            <p>Kích thước tối thiểu của Logo hiển thị dạng đầy đủ khi in ấn chiều dài không được thấp hơn 40mm.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="list_logo">
+                            <div class="item">
+                                <div class="insider">
+                                    <div class="logo">
+                                        <img src="images/m1.png" width="448px" alt="logo">
+                                    </div>
+                                    <h3>Logo định dạng ngang</h3>
+
+                                    <div class="btn_front btn_front_edit">
+                                        <div class="button">
+                                            <span>Upload file vector</span>
+                                            <input type="file" name="upload_vector" class="upload_vector"/>
+                                        </div>
+                                        <div class="button">
+                                            <span>Upload hình ảnh</span>
+                                            <input type="file" name="upload_img" class="upload_img"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="insider">
+                                    <div class="logo">
+                                        <img src="images/m2.png" width="286px" alt="logo">
+                                    </div>
+                                    <h3>Logo định dạng ngang</h3>
+
+                                    <div class="btn_front btn_front_edit">
+                                        <div class="button">
+                                            <span>Upload file vector</span>
+                                            <input type="file" name="upload_vector" class="upload_vector"/>
+                                        </div>
+                                        <div class="button">
+                                            <span>Upload hình ảnh</span>
+                                            <input type="file" name="upload_img" class="upload_img"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="insider">
+                                    <div class="logo">
+                                        <img src="images/m3.png" width="286px" alt="logo">
+                                    </div>
+                                    <h3>Logo định dạng ngang</h3>
+
+                                    <div class="btn_front btn_front_edit">
+                                        <div class="button">
+                                            <span>Upload file vector</span>
+                                            <input type="file" name="upload_vector" class="upload_vector"/>
+                                        </div>
+                                        <div class="button">
+                                            <span>Upload hình ảnh</span>
+                                            <input type="file" name="upload_img" class="upload_img"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="insider">
+                                    <div class="logo">
+                                        <img src="images/m4.png" width="286px" alt="logo">
+                                    </div>
+                                    <h3>Logo định dạng ngang</h3>
+
+                                    <div class="btn_front btn_front_edit">
+                                        <div class="button">
+                                            <span>Upload file vector</span>
+                                            <input type="file" name="upload_vector" class="upload_vector"/>
+                                        </div>
+                                        <div class="button">
+                                            <span>Upload hình ảnh</span>
+                                            <input type="file" name="upload_img" class="upload_img"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section  class="section section14">
+            <div class="in">
+                <h2>12. <p>Không gian trống tối thiểu</p></h2>
+
+                <div class="list_color">
+                    <div class="item">
+                        <div class="content">
+                            <p>Trong thiết kế logo việc lựa chọn và sử dụng font chữ là vô cùng quan trọng.</p>
+                            <p>Ngoài ra chúng tôi cũng đưa ra font chữ trình bày văn bản (thể hiện trong các ứng dụng văn phòng) và font chữ gợi ý khác đồng bộ với font chữ thương hiệu và tạo bản sắc riêng cho thương hiệu.</p>
+                            <p>Mọi sản phẩm truyền thông thương hiệu của AGRISECO đều bắt buộc phải sử dụng font chữ đã quy định để đảm bảo tính nhận diện cùng với tính đồng bộ nhất quán của thương hiệu.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="content">
+                            <div class="list">
+                                <button class="btn_ground_size">
+                                    <img src="images/upto4.png" alt="icon" />
+                                    <input type="file" name="upload_background2" class="upload_background"/>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section  class="section section15">
+            <div class="in">
+                <h2>13. <p>Logo đặt trên nền ảnh</p></h2>
+
+                <div class="list_color">
+                    <div class="item">
+                        <div class="content">
+                            <p>Trong thiết kế logo việc lựa chọn và sử dụng font chữ là vô cùng quan trọng.</p>
+                            <p>Ngoài ra chúng tôi cũng đưa ra font chữ trình bày văn bản (thể hiện trong các ứng dụng văn phòng) và font chữ gợi ý khác đồng bộ với font chữ thương hiệu và tạo bản sắc riêng cho thương hiệu.</p>
+                            <p>Mọi sản phẩm truyền thông thương hiệu của AGRISECO đều bắt buộc phải sử dụng font chữ đã quy định để đảm bảo tính nhận diện cùng với tính đồng bộ nhất quán của thương hiệu.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="content">
+                            <div class="list_logo">
+                                <div class="item">
+                                    <div class="insider">
+                                        <div class="logo">
+                                            <button class="btn_ground_logo">
+                                                <img src="images/upto4.png" alt="icon" />
+                                                <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="insider">
+                                        <div class="logo">
+                                            <button class="btn_ground_logo">
+                                                <img src="images/upto4.png" alt="icon" />
+                                                <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                        <h3>Logo định dạng ngang</h3>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="insider">
+                                        <div class="logo">
+                                            <button class="btn_ground_logo">
+                                                <img src="images/upto4.png" alt="icon" />
+                                                <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                        <h3>Logo định dạng ngang</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section  class="section section16">
+            <div class="in">
+                <h2>13. <p>Không gian trống tối thiểu</p></h2>
+
+                <div class="list_color">
+                    <div class="item">
+                        <div class="content">
+                            <p>Trong thiết kế logo việc lựa chọn và sử dụng font chữ là vô cùng quan trọng.</p>
+                            <p>Ngoài ra chúng tôi cũng đưa ra font chữ trình bày văn bản (thể hiện trong các ứng dụng văn phòng) và font chữ gợi ý khác đồng bộ với font chữ thương hiệu và tạo bản sắc riêng cho thương hiệu.</p>
+                            <p>Mọi sản phẩm truyền thông thương hiệu của AGRISECO đều bắt buộc phải sử dụng font chữ đã quy định để đảm bảo tính nhận diện cùng với tính đồng bộ nhất quán của thương hiệu.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="content">
+                            <button class="btn_ground_logo">
+                                <img src="images/upto4.png" alt="icon" />
+                                <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section  class="section section17">
+            <div class="in">
+                <h2>14. <p>Các trường hợp tránh sử dụng</p></h2>
+
+                <div class="list_color">
+                    <div class="item">
+                        <div class="content">
+                            <p>Trong thiết kế logo việc lựa chọn và sử dụng font chữ là vô cùng quan trọng.</p>
+                            <p>Ngoài ra chúng tôi cũng đưa ra font chữ trình bày văn bản (thể hiện trong các ứng dụng văn phòng) và font chữ gợi ý khác đồng bộ với font chữ thương hiệu và tạo bản sắc riêng cho thương hiệu.</p>
+                            <p>Mọi sản phẩm truyền thông thương hiệu của AGRISECO đều bắt buộc phải sử dụng font chữ đã quy định để đảm bảo tính nhận diện cùng với tính đồng bộ nhất quán của thương hiệu.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="content">
+                            <div class="list">
+                                <button class="btn_ground_logo">
+                                    <img src="images/upto4.png" alt="icon" />
+                                    <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section  class="section section18">
+            <div class="in">
+                <h2>15. <p>Phối cảnh logo</p></h2>
+
+                <div class="list_color">
+                    <div class="item">
+                        <div class="content">
+                            <p>Trong thiết kế logo việc lựa chọn và sử dụng font chữ là vô cùng quan trọng.</p>
+                            <p>Ngoài ra chúng tôi cũng đưa ra font chữ trình bày văn bản (thể hiện trong các ứng dụng văn phòng) và font chữ gợi ý khác đồng bộ với font chữ thương hiệu và tạo bản sắc riêng cho thương hiệu.</p>
+                            <p>Mọi sản phẩm truyền thông thương hiệu của AGRISECO đều bắt buộc phải sử dụng font chữ đã quy định để đảm bảo tính nhận diện cùng với tính đồng bộ nhất quán của thương hiệu.</p>
+                        </div>
+                        <div class="btn_front btn_front_edit">
+                            <div class="button">
+                                <span>Upload hình ảnh</span>
+                                <input type="file" name="upload_img" class="upload_img"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="content">
+                            <div class="insider">
+                                <div class="item">
+                                    <div class="in">
+                                        <button class="btn_ground_logo">
+                                            <img src="images/upto4.png" alt="icon" />
+                                            <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="in">
+                                        <button class="btn_ground_logo">
+                                            <img src="images/upto4.png" alt="icon" />
+                                            <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="in">
+                                        <button class="btn_ground_logo">
+                                            <img src="images/upto4.png" alt="icon" />
+                                            <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="in">
+                                        <button class="btn_ground_logo">
+                                            <img src="images/upto4.png" alt="icon" />
+                                            <input type="file" name="upload_background2" class="upload_background" alt="logo"/>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -446,5 +826,9 @@
         </section>
     </div>
 </div>
+
+@include('backend.slt_layout')
+
+@include('backend.edit_guide')
 
 @include('base.footer')

@@ -383,9 +383,15 @@
 
     function select() {
         let slt_close_tag = $('.new_guide .insider .invite_user_slt .list_tags .close_tag');
+        let slt_close_tag2 = $('.invite_list .insider .invite_user_slt .list_tags .close_tag');
 
         slt_close_tag.on('click',function () {
-            $(this).parent().find('.search_keyword_slt').slideToggle();
+            $('.search_keyword_slt').slideUp();
+            $(this).parent().find('.search_keyword_slt').slideDown();
+        });
+
+        slt_close_tag2.on('click',function () {
+            $(this).siblings('.search_keyword_slt').slideToggle();
         });
 
         $('.new_guide .insider .close_guide').on('click',function () {
@@ -396,37 +402,37 @@
             $('.new_guide').addClass('active');
         });
 
-        $(document).on('click','.invite_user_slt_project .item',function () {
+        $(document).on('click','.new_guide .invite_user_slt_project .item',function () {
             //append item
-            $('.invite_user_slt_project .list_tags .list .insider span').remove();
-            $('.invite_user_slt_project .list_tags .list .insider').html('<div class="item" data-id="'+$(this).attr('data-id')+'"><div class="close_item"><img src="images/close.png" alt="close" /></div> '+$(this).text()+'</div>');
-            $('.get_invite_user_slt_project').val($(this).attr('data-id'));
+            $('.new_guide .invite_user_slt_project .list_tags .list .insider span').remove();
+            $('.new_guide .invite_user_slt_project .list_tags .list .insider').html('<div class="item" data-id="'+$(this).attr('data-id')+'"><div class="close_item"><img src="images/close.png" alt="close" /></div> '+$(this).text()+'</div>');
+            $('.new_guide .get_invite_user_slt_project').val($(this).attr('data-id'));
 
             //remove item
-            $('.invite_user_slt_project .list_tags .list .item .close_item').on('click',function () {
+            $('.new_guide .invite_user_slt_project .list_tags .list .item .close_item').on('click',function () {
                 $(this).parent().parent().append('<span>Select users</span>');
                 $(this).parent().remove();
-                $('.get_invite_user_slt_project').val('');
+                $('.new_guide .get_invite_user_slt_project').val('');
             });
         });
 
-        $(document).on('click','.invite_user_slt_user .search_keyword_slt  .item',function (e) {
+        $(document).on('click','.new_guide .invite_user_slt_user .search_keyword_slt  .item',function (e) {
             e.preventDefault();
-            $('.get_invite_user_slt_user').val('');
+            $('.new_guide .get_invite_user_slt_user').val('');
 
             //append item
-            $('.invite_user_slt_user .list_tags .list .insider span').remove();
-            $('.invite_user_slt_user .list_tags .list .insider').append('<div class="item" data-id="'+$(this).attr('data-id')+'"><div class="close_item"><img src="images/close.png" alt="close" /></div> '+$(this).text()+'</div>');
+            $('.new_guide .invite_user_slt_user .list_tags .list .insider span').remove();
+            $('.new_guide .invite_user_slt_user .list_tags .list .insider').append('<div class="item" data-id="'+$(this).attr('data-id')+'"><div class="close_item"><img src="images/close.png" alt="close" /></div> '+$(this).text()+'</div>');
 
             arr.push($(this).attr('data-id'));
-            $('.get_invite_user_slt_user').val(arr);
+            $('.new_guide .get_invite_user_slt_user').val(arr);
 
 
             $(this).remove();
         });
 
         //remove item
-        $(document).on('click','.invite_user_slt_user .list_tags .list .item .close_item',function () {
+        $(document).on('click','.new_guide .invite_user_slt_user .list_tags .list .item .close_item',function () {
             $(this).parent().remove();
 
             var val = $(this).parent().attr('data-id');
@@ -435,27 +441,27 @@
 
             arr.splice( $.inArray(removeItem,arr) ,1 );
 
-            $('.get_invite_user_slt_user').val(arr);
+            $('.new_guide .get_invite_user_slt_user').val(arr);
 
         });
 
         let arr = [];
-        $(document).on('click','.invite_user_slt_cate .search_keyword_slt  .item',function (e) {
+        $(document).on('click','.new_guide .invite_user_slt_cate .search_keyword_slt  .item',function (e) {
             e.preventDefault();
-            $('.get_invite_user_slt_cate').val('');
+            $('.new_guide .get_invite_user_slt_cate').val('');
 
             //append item
-            $('.invite_user_slt_cate .list_tags .list .insider span').remove();
-            $('.invite_user_slt_cate .list_tags .list .insider').append('<div class="item" data-id="'+$(this).attr('data-id')+'"><div class="close_item"><img src="images/close.png" alt="close" /></div> '+$(this).text()+'</div>');
+            $('.new_guide .invite_user_slt_cate .list_tags .list .insider span').remove();
+            $('.new_guide .invite_user_slt_cate .list_tags .list .insider').append('<div class="item" data-id="'+$(this).attr('data-id')+'"><div class="close_item"><img src="images/close.png" alt="close" /></div> '+$(this).text()+'</div>');
 
             arr.push($(this).attr('data-id'));
-            $('.get_invite_user_slt_cate').val(arr);
+            $('.new_guide .get_invite_user_slt_cate').val(arr);
 
             $(this).remove();
         });
 
         //remove item
-        $(document).on('click','.invite_user_slt_cate .list_tags .list .item .close_item',function () {
+        $(document).on('click','.new_guide .invite_user_slt_cate .list_tags .list .item .close_item',function () {
             $(this).parent().remove();
 
             var val = $(this).parent().attr('data-id');
@@ -464,8 +470,98 @@
 
             arr.splice( $.inArray(removeItem,arr) ,1 );
 
-            $('.get_invite_user_slt_cate').val(arr);
+            $('.new_guide .get_invite_user_slt_cate').val(arr);
 
+        });
+
+        //invite
+        $(document).on('click','.invite_list .invite_user_slt_user .search_keyword_slt  .item',function (e) {
+            e.preventDefault();
+
+            //append item
+            $('.invite_list .invite_user_slt_user .list_tags .list .insider span').remove();
+            $('.invite_list .invite_user_slt_user .list_tags .list .insider').append('<div class="item" data-id="'+$(this).attr('data-id')+'"><div class="close_item"><img src="images/close.png" alt="close" /></div> '+$(this).text()+'</div>');
+
+            let str = $('.invite_list .get_invite_user_slt_user').val();
+            arr = str.split(",");
+
+            arr.push($(this).attr('data-id'));
+            $('.invite_list .get_invite_user_slt_user').val(arr);
+
+            let id = $('.invite_list .get_invite_id').val();
+            let local = $('.get_invite_url').val();
+
+            $.ajax({
+                type:'POST',
+                url:local,
+                data:{'id':id,'arr':arr},
+                success:function(data){
+
+                }
+            });
+
+            $(this).remove();
+        });
+
+        //remove item
+        $(document).on('click','.invite_list .invite_user_slt_user .list_tags .list .item .close_item',function () {
+            $(this).parent().remove();
+            let id = $('.invite_list .get_invite_id').val();
+
+            let val = $(this).parent().attr('data-id');
+
+            let removeItem = val;
+
+            let str = $('.invite_list .get_invite_user_slt_user').val();
+            arr = str.split(",");
+
+            arr.splice( $.inArray(removeItem,arr) ,1 );
+
+            $('.invite_list .get_invite_user_slt_user').val(arr);
+
+            let local = $('.get_invite_url').val();
+
+            $.ajax({
+                type:'POST',
+                url:local,
+                data:{'id':id,'arr':arr},
+                success:function(data){
+
+                }
+            });
+
+        });
+
+        $('.invite_list .close_guide').on('click',function () {
+            $('.invite_list').removeClass('active');
+        });
+
+        $(document).on('click','.guidelines_admin .list_guide table tbody span.add',function () {
+            $('.invite_list').addClass('active');
+            let id = $(this).attr('data-id');
+            let local = $(this).attr('data-url');
+            $('.invite_list .get_invite_id').val(id);
+
+            $.ajax({
+                type:'POST',
+                url:local,
+                data:{'id':id},
+                success:function(data){
+                    $('.invite_list .list_tags .list .insider span').remove();
+                    $('.invite_list .list_tags .list .insider').html('');
+
+                    $.each(data.success, (index, item) => {
+                        $('.invite_list .list_tags .list .insider').append('<div class="item" data-id="'+item.userid+'"><div class="close_item"><img src="images/close.png" alt="close" /></div> '+item.username+'</div>');
+                    });
+
+                    $.each(data.users_search, (index, item) => {
+                        $('.invite_list .list_slt').append('<div class="item" data-id="'+item.userid+'">'+item.username+'</div>');
+                    });
+
+                    $('.invite_list .get_invite_user_slt_user').val(data.list);
+
+                }
+            });
         });
     }
 
@@ -594,6 +690,37 @@
             $(this).siblings('img').show();
             $(this).parent().css('background','none');
         });
+
+        $('.fullpage_new .btn_ground_logo input').on('change', function () {
+            let tmppath4 = URL.createObjectURL(event.target.files[0]);
+            $(this).parent().css('background','url('+tmppath4+') no-repeat');
+            $(this).parent().addClass('active');
+            $(this).siblings('img').hide();
+        });
+
+        $('.fullpage_admin .btn_ground_logo i').on('click', function () {
+            $(this).siblings('img').show();
+            $(this).parent().removeClass('active');
+            $(this).parent().css('background','none');
+        });
+
+
+        //upload file image
+        $('.upload_vector').on('change',function () {
+            let tmppath = URL.createObjectURL(event.target.files[0]);
+            let filename = $(this).val().split('\\').pop();
+            let ext = filename.split('.')[1];
+
+            $(this).siblings('span').text(filename);
+        });
+        $('.upload_img').on('change',function () {
+            let tmppath = URL.createObjectURL(event.target.files[0]);
+            let filename = $(this).val().split('\\').pop();
+            let ext = filename.split('.')[1];
+
+            $(this).siblings('span').text(filename);
+            $(this).parent().parent().siblings('.logo').find('img').attr('src',tmppath);
+        });
     }
 
 
@@ -627,6 +754,7 @@
                         data:{'keyword':keyword,'db':db,'col':col},
                         success:function(data){
                             $('.search_keyword_slt .list_slt1').empty();
+
                             $.each(data.success, (index, item) => {
                                 $('.search_keyword_slt .list_slt1').append('<div class="item" data-id="'+item.project_id+'">'+ item.project_name +'</div>');
                             });
@@ -651,8 +779,19 @@
                         data:{'keyword':keyword,'db':db,'col':col},
                         success:function(data){
                             $('.search_keyword_slt .list_slt2').empty();
+
+                            let myarray = [];
+
+                            $('.invite_user_slt_user .item').each(function(){
+                                let val = $(this).text();
+                                    val = val.replace(" ", "");
+                                    myarray.push(val);
+                            });
+
                             $.each(data.success, (index, item) => {
-                                $('.search_keyword_slt .list_slt2').append('<div class="item" data-id="'+item.userid+'">'+ item.username +'</div>');
+                                if(jQuery.inArray(item.username, myarray) < 0) {
+                                    $('.search_keyword_slt .list_slt2').append('<div class="item" data-id="'+item.userid+'">'+ item.username +'</div>');
+                                }
                             });
                         }
                     });
@@ -675,8 +814,19 @@
                         data:{'keyword':keyword,'db':db,'col':col},
                         success:function(data){
                             $('.search_keyword_slt .list_slt3').empty();
+
+                            let myarray = [];
+
+                            $('.invite_user_slt_cate .item').each(function(){
+                                let val = $(this).text();
+                                val = val.replace(" ", "");
+                                myarray.push(val);
+                            });
+
                             $.each(data.success, (index, item) => {
-                                $('.search_keyword_slt .list_slt3').append('<div class="item" data-id="'+item.category_id+'">'+ item.category_name +'</div>');
+                                if(jQuery.inArray(item.category_name, myarray) < 0) {
+                                    $('.search_keyword_slt .list_slt3').append('<div class="item" data-id="'+item.category_id+'">'+ item.category_name +'</div>');
+                                }
                             });
                         }
                     });
@@ -723,7 +873,7 @@
 
         });
 
-        $('.copyright_menu .btn_send_menu_admin').on('click',function () {
+        $('.btn_send_menu_admin').on('click',function () {
             $('.edit_guide').addClass('active');
         });
 
@@ -735,6 +885,8 @@
     function create_menu_layout() {
         $('.create_guide_new').on('click', function () {
             let menu_name = $('.get_name_menu').val();
+            let id = parseInt($('.menu_admin ul.nav li ul li:last-child').attr('data-id'));
+            let id_add = id + 1;
             if(menu_name !==""){
                 $('.new_guide').removeClass('active');
                 $('.slt_layout').addClass('active');
@@ -743,6 +895,8 @@
                 $('.get_menu_parent').val($('.invite_user_slt_project .item').attr('data-id'));
 
                 $('.get_menu_parent').val($('.invite_user_slt_menu_parent .insider1 .item').attr('data-id'));
+
+                $('.menu_admin ul.nav li ul').append('<li data-id="'+id_add+'" data-menuanchor="sec'+id_add+'"><a href="'+$('.menu_admin ul.nav').attr('data-url')+'">'+menu_name+'</a></li>');
             }else{
                 $('.alert-danger').text('Vui lòng nhập tên menu !');
             }
@@ -777,6 +931,7 @@
             let local = $(location).attr('href');
             var getUrl = window.location;
             var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+            var url_item = $('.guidelines_admin .main_content .search form input').attr('data-invite');
             $('.guidelines_admin .loadmore i').addClass('active');
             $.ajax({
                 type:'POST',
@@ -786,13 +941,81 @@
                     let length_success = data.success.length;
                     console.log(data.success);
                     if(length_success > 0){
+                        var html;
                         $.each(data.success, (index, item) => {
-                            $('.guidelines_admin .list_guide table tbody').append('<tr><td><strong>'+item.project_name+'</strong></td><td>'+item.status+'</td><td>'+item.created_at+'</td><td>'+item.name_create+'</td><td><span class="add"><i class="fa fa-user-plus" aria-hidden="true"></i></span><a href="'+baseUrl+'/guidelines/'+item.id+'" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td></tr>');
+                            if(item.status == 1){
+                                html = "<span class=\"process\">Process</span>";
+                            }else if(item.status == 2){
+                                html = "<span class=\"done\">done</span>";
+                            }
+
+                            if(item.security == 1){
+                                $('.guidelines_admin .list_guide table tbody').append('<tr><td><a class="active" href="'+baseUrl+'/guidelines/'+item.id+'"><strong>'+item.project_name+' <i class="fa fa-lock" aria-hidden="true"></i></a></strong></td><td>'+html+'</td><td>'+item.created_at+'</td><td>'+item.name_create+'</td><td><span class="add" data-id="'+item.id+'" data-url="'+url_item+'"><i class="fa fa-user-plus" aria-hidden="true"></i></span><a href="'+baseUrl+'/guidelines/'+item.id+'" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td></tr>');
+                            }else{
+                                $('.guidelines_admin .list_guide table tbody').append('<tr><td><a href="'+baseUrl+'/guidelines/'+item.id+'"><strong>'+item.project_name+'</strong></a></td><td>'+html+'</td><td>'+item.created_at+'</td><td>'+item.name_create+'</td><td><span class="add" data-id="'+item.id+'" data-url="'+url_item+'">1<i class="fa fa-user-plus" aria-hidden="true"></i></span><a href="'+baseUrl+'/guidelines/'+item.id+'" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td></tr>');
+                            }
                         });
                         $('.guidelines_admin .loadmore i').removeClass('active');
                     }else{
                         $('.guidelines_admin .loadmore').fadeOut();
                     }
+                }
+            });
+        });
+    }
+
+    function upload_font() {
+        $('.upload_font_th').on('change',function () {
+            let tmppath = URL.createObjectURL(event.target.files[0]);
+            let filename = $(this).val().split('\\').pop();
+            let ext = filename.split('.')[1];
+
+            $(this).siblings('span').text(filename);
+        });
+        $('.upload_font_bt').on('change',function () {
+            let tmppath = URL.createObjectURL(event.target.files[0]);
+            let filename = $(this).val().split('\\').pop();
+            let ext = filename.split('.')[1];
+
+            $(this).siblings('span').text(filename);
+        });
+        $('.upload_font_vb').on('change',function () {
+            let tmppath = URL.createObjectURL(event.target.files[0]);
+            let filename = $(this).val().split('\\').pop();
+            let ext = filename.split('.')[1];
+
+            $(this).siblings('span').text(filename);
+        });
+    }
+
+    function searchProject() {
+        $('.guidelines_admin .main_content .search form input').on('keyup',function () {
+            let local = $(this).attr('data-url');
+            let invite = $(this).attr('data-invite');
+            let keyword = $(this).val();
+            var getUrl = window.location;
+            var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+            var url_item = $('.guidelines_admin .main_content .search form input').attr('data-invite');
+            $.ajax({
+                type:'POST',
+                url:local,
+                data:{'keyword':keyword},
+                success:function(data){
+                    $('.guidelines_admin .list_guide table tbody').html('');
+                    $.each(data.success, (index, item) => {
+                        var html;
+                        if(item.status == 1){
+                            html = "<span class=\"process\">Process</span>";
+                        }else if(item.status == 2){
+                            html = "<span class=\"done\">done</span>";
+                        }
+
+                        if(item.security == 1){
+                            $('.guidelines_admin .list_guide table tbody').append('<tr><td><a class="active" href="'+baseUrl+'/guidelines/'+item.id+'"><strong>'+item.project_name+' <i class="fa fa-lock" aria-hidden="true"></i></a></strong></td><td>'+html+'</td><td>'+item.created_at+'</td><td>'+item.name_create+'</td><td><span class="add" data-id="'+item.id+'" data-url="'+invite+'"><i class="fa fa-user-plus" aria-hidden="true"></i></span><a href="'+baseUrl+'/guidelines/'+item.id+'" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td></tr>');
+                        }else{
+                            $('.guidelines_admin .list_guide table tbody').append('<tr><td><a href="'+baseUrl+'/guidelines/'+item.id+'"><strong>'+item.project_name+'</strong></a></td><td>'+html+'</td><td>'+item.created_at+'</td><td>'+item.name_create+'</td><td><span class="add" data-id="'+item.id+'" data-url="'+invite+'"><i class="fa fa-user-plus" aria-hidden="true"></i></span><a href="'+baseUrl+'/guidelines/'+item.id+'" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td></tr>');
+                        }
+                    });
                 }
             });
         });
@@ -809,6 +1032,8 @@
         menuEditGuidelines();
         create_menu_layout();
         loadmoreAdmin();
+        upload_font();
+        searchProject();
     }
 
     __init();

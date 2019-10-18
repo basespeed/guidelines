@@ -1,8 +1,21 @@
 .menu_admin{
   text-align: center;
   margin-top: -15px;
+    .btn_menu{
+        background: #EBEBEB;
+        button{
+            background: none;
+            color: #F67F13;
+            text-decoration: underline;
+            font-size: 14px;
+            text-align: left;
+            padding: 0;
+            margin-top: 0;
+            cursor: pointer;
+        }
+    }
     ul.nav{
-      max-height: 404px;
+      max-height: 560px;
       overflow-y: scroll;
       margin-top: 0px !important;
       li{
@@ -253,11 +266,12 @@
                     a{
                         color: #000;
                     }
-                }
-                .process{
-                    background-color: #00d2d4;
-                    padding: 2px 5px;
-                    border-radius: 4px;
+                    a.active{
+                        color: red;
+                        i{
+                            margin-left: 10px;
+                        }
+                    }
                 }
                 .done{
                     padding: 2px 5px;
@@ -274,3 +288,25 @@
 }
 
 
+.process{
+    background-color: #FDB813;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #FFF;
+}
+
+.done{
+    color: #FFF;
+}
+
+.invite_list{
+    @extend .new_guide;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.invite_list.active{
+    visibility: visible;
+    opacity: 1;
+}

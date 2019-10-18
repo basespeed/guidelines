@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/','controllerBase@getBase');
 
 Route::group(['namespace'=>'admin'],function(){
@@ -63,7 +64,22 @@ Route::group(['namespace'=>'table'],function(){
         Route::get('/menu_sk','controllerCreateProject@getTableCategory');
         Route::get('/detail_sk','controllerCreateProject@getTableDetail');
         Route::get('/invite_sk','controllerCreateProject@getTableInvite');
+        Route::get('/color_sk','controllerCreateProject@getTableColor');
     });
+});
+
+//Ajax
+Route::group(['prefix'=>'ajax'],function(){
+   Route::post('/invite','AjaxController@postInvite')->name('ajax-invite');
+   Route::post('/updateInvite','AjaxController@postUpdateInvite')->name('ajax-update-invite');
+   Route::post('/searchProject','AjaxController@postSearchProject')->name('ajax-search-project');
+});
+
+//Insert Guidelines Details
+Route::group(['namespace'=>'insert'],function (){
+   Route::group(['prefix'=>'insert'],function (){
+        Route::post('/guidelineDetails','insertController@postInsertGuidelinesDetails')->name('insertGuidelinesDetails');
+   });
 });
 
 

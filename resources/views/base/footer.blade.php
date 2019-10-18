@@ -11,9 +11,9 @@
 <script src="swatches/jquery.ui.colorpicker-prismacolor.js"></script>
 <script src="swatches/jquery.ui.colorpicker-isccnbs.js"></script>
 <script src="swatches/jquery.ui.colorpicker-din6164.js"></script>
-<script src="parts/jquery.ui.colorpicker-rgbslider.js"></script>
-<script src="parts/jquery.ui.colorpicker-memory.js"></script>
-<script src="parts/jquery.ui.colorpicker-swatchesswitcher.js"></script>
+{{--<script src="parts/jquery.ui.colorpicker-rgbslider.js"></script>--}}
+{{--<script src="parts/jquery.ui.colorpicker-memory.js"></script>--}}
+{{--<script src="parts/jquery.ui.colorpicker-swatchesswitcher.js"></script>--}}
 <script src="parsers/jquery.ui.colorpicker-cmyk-parser.js"></script>
 <script src="parsers/jquery.ui.colorpicker-cmyk-percentage-parser.js"></script>
 <script src="js/js.js"></script>

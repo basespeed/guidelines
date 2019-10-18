@@ -32,7 +32,7 @@
     <div class="main_content">
         <div class="search">
             <form action="search.php" method="post">
-                <input type="text" name="keyword" placeholder="Search...">
+                <input type="text" name="keyword" placeholder="Search..." data-url="{{Route('ajax-search-project')}}" data-invite="{{Route('ajax-invite')}}">
                 <button name="sub_search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
         </div>
@@ -77,22 +77,34 @@
                                 @foreach($projects_sk as $project )
                                     @php
                                         $project_id = $project->name_project;
+                                        $sec = $project->security;
                                     @endphp
                                     <tr>
                                         <td>
-                                            <a href="{{asset('guidelines/'.$project->id)}}" target="_blank">
+                                            <a href="{{asset('guidelines/'.$project->id)}}" target="_blank" @if($sec == 1) class="active" @endif>
                                                 @foreach($projects as $item)
                                                     @if($item->project_id == $project_id)
-                                                        <strong>{{$item->project_name}}</strong>
+                                                        <strong>
+                                                            {{$item->project_name}}
+                                                            @if($sec == 1)
+                                                                <i class="fa fa-lock" aria-hidden="true"></i>
+                                                            @endif
+                                                        </strong>
                                                     @endif
                                                 @endforeach
                                             </a>
                                         </td>
-                                        <td><span class="process">Process</span></td>
+                                        <td>
+                                            @if($project->status == 1)
+                                                <span class="process">Process</span>
+                                            @elseif($project->status == 2)
+                                                <span class="done">done</span>
+                                            @endif
+                                        </td>
                                         <td>{{$project->created_at}}</td>
                                         <td>{{$project->name_create}}</td>
                                         <td>
-                                            <span class="add"><i class="fa fa-user-plus" aria-hidden="true"></i></span>
+                                            <span class="add" data-id="{{$project->id}}" data-url="{{Route('ajax-invite')}}"><i class="fa fa-user-plus" aria-hidden="true"></i></span>
                                             <a href="{{asset('guidelines/'.$project->id)}}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
@@ -177,12 +189,40 @@
                 <input type="hidden" name="get_invite_user_slt_cate" class="get_invite_user_slt_cate">
 
                 <div class="btn_create">
-                    <div class="check_dk"><input type="checkbox">Dự án yêu cầu về bảo mật thông tin <i class="fa fa-question-circle" aria-hidden="true"></i></div>
+                    <div class="check_dk"><input type="checkbox" name="checkbox_project">Dự án yêu cầu về bảo mật thông tin <i class="fa fa-question-circle" aria-hidden="true"></i></div>
                     <button type="submit" class="create_guide_new">Create new Guidelines</button>
                 </div>
             </div>
         </div>
         {{csrf_field()}}
     </form>
+</div>
+
+<div class="invite_list">
+    <div class="insider">
+        <div class="close_guide"><img src="images/close.png" alt="close" /></div>
+        <label>Invite users *:</label>
+        <div class="invite_user_slt invite_user_slt2 invite_user_slt_user">
+            <div class="list_tags">
+                <div class="list">
+                    <div class="insider insider2">
+                        <span>Select users</span>
+                    </div>
+                </div>
+                <div class="search_keyword_slt search_keyword_slt3">
+                    <input type="text" class="get_slt_keyword get_slt_keyword2" placeholder="Search users...">
+                    <div class="list_slt list_slt2">
+
+                    </div>
+                </div>
+                <div class="close_tag close_tag3"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+            </div>
+        </div>
+
+        <input type="hidden" name="get_invite_user_slt_user" class="get_invite_user_slt_user">
+        <input type="hidden" name="get_invite_id" class="get_invite_id">
+        <input type="hidden" name="get_invite_url" class="get_invite_url" value="{{Route('ajax-update-invite')}}">
+    </div>
+</div>
 
 @include('base.footer')

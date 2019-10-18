@@ -10,8 +10,8 @@
                         <input type="text" name="get_name_menu" class="get_name_menu" placeholder="Select Users" />
                     </div>
                     <p class="alert-danger"></p>
-                    <label>Menu Parent</label>
-                    <div class="invite_user_slt invite_user_slt1 invite_user_slt_menu_parent">
+                    {{--<label>Menu Parent</label>--}}
+                    {{--<div class="invite_user_slt invite_user_slt1 invite_user_slt_menu_parent">
                         <div class="list_tags">
                             <div class="list">
                                 <div class="insider insider1">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
 
-                    <input type="hidden" name="get_invite_user_slt_project" class="get_invite_user_slt_project">
+                    <input type="hidden" name="get_invite_user_slt_project" class="get_invite_user_slt_project">--}}
 
                     <div class="btn_create">
                         <button type="button" class="create_guide_new">Next</button>
